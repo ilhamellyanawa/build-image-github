@@ -9,19 +9,19 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build image
-        run: docker build -t adinusa:latest .
+        run: docker build -t imageku:latest .
 
       - name: List image
         run: docker images
 
       - name: Cek isi image
-        run: docker history adinusa:latest
+        run: docker history imageku:latest
 
       - name: Login to GitHub Registry
         run: echo ${{ secrets.TOKEN_GITHUB }} | docker login ghcr.io -u ilhamellyanawa --password-stdin
 
       - name: Tag image
-        run: docker tag imageku ghcr.io/ilhamellyanawa/adinusa:latest
+        run: docker tag imageku ghcr.io/ilhamellyanawa/imageku:latest
 
       - name: Push Image
-        run: docker push ghcr.io/ilhamellyanawa/adinusa:latest
+        run: docker push ghcr.io/ilhamellyanawa/imageku:latest
